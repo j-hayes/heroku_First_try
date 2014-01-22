@@ -1,0 +1,114 @@
+[33mcommit 37e8247e29b8be1534644668d4aebb95b3ab3608[m
+Author: jackson hayes <jhayes2118@gmail.com>
+Date:   Wed Jan 22 00:27:12 2014 -0600
+
+    init
+
+[1mdiff --git a/.gitignore.gitignore b/.gitignore.gitignore[m
+[1mnew file mode 100644[m
+[1mindex 0000000..eb5a316[m
+[1m--- /dev/null[m
+[1m+++ b/.gitignore.gitignore[m
+[36m@@ -0,0 +1 @@[m
+[32m+[m[32mtarget[m
+[1mdiff --git a/helloworld.iml b/helloworld.iml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4e4bd53[m
+[1m--- /dev/null[m
+[1m+++ b/helloworld.iml[m
+[36m@@ -0,0 +1,22 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">[m
+[32m+[m[32m  <component name="NewModuleRootManager" inherit-compiler-output="false">[m
+[32m+[m[32m    <output url="file://$MODULE_DIR$/target/classes" />[m
+[32m+[m[32m    <output-test url="file://$MODULE_DIR$/target/test-classes" />[m
+[32m+[m[32m    <content url="file://$MODULE_DIR$">[m
+[32m+[m[32m      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />[m
+[32m+[m[32m      <excludeFolder url="file://$MODULE_DIR$/target" />[m
+[32m+[m[32m    </content>[m
+[32m+[m[32m    <orderEntry type="inheritedJdk" />[m
+[32m+[m[32m    <orderEntry type="sourceFolder" forTests="false" />[m
+[32m+[m[32m    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-servlet:7.6.0.v20120127" level="project" />[m
+[32m+[m[32m    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-security:7.6.0.v20120127" level="project" />[m
+[32m+[m[32m    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-server:7.6.0.v20120127" level="project" />[m
+[32m+[m[32m    <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />[m
+[32m+[m[32m    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-continuation:7.6.0.v20120127" level="project" />[m
+[32m+[m[32m    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:7.6.0.v20120127" level="project" />[m
+[32m+[m[32m    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-io:7.6.0.v20120127" level="project" />[m
+[32m+[m[32m    <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-util:7.6.0.v20120127" level="project" />[m
+[32m+[m[32m  </component>[m
+[32m+[m[32m</module>[m
+[32m+[m
+[1mdiff --git a/pom.xml b/pom.xml[m
+[1mnew file mode 100644[m
+[1mindex 0000000..02beb22[m
+[1m--- /dev/null[m
+[1m+++ b/pom.xml[m
+[36m@@ -0,0 +1,37 @@[m
+[32m+[m[32m<?xml version="1.0" encoding="UTF-8"?>[m
+[32m+[m[32m<project xmlns="http://maven.apache.org/POM/4.0.0"[m[41m [m
+[32m+[m[32m         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"[m[41m [m
+[32m+[m[32m         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">[m
+[32m+[m[32m    <modelVersion>4.0.0</modelVersion>[m
+[32m+[m[32m    <groupId>com.example</groupId>[m
+[32m+[m[32m    <version>1.0-SNAPSHOT</version>[m
+[32m+[m[32m    <artifactId>helloworld</artifactId>[m
+[32m+[m[32m    <dependencies>[m
+[32m+[m[32m        <dependency>[m
+[32m+[m[32m            <groupId>org.eclipse.jetty</groupId>[m
+[32m+[m[32m            <artifactId>jetty-servlet</artifactId>[m
+[32m+[m[32m            <version>7.6.0.v20120127</version>[m
+[32m+[m[32m        </dependency>[m
+[32m+[m[32m        <dependency>[m
+[32m+[m[32m            <groupId>javax.servlet</groupId>[m
+[32m+[m[32m            <artifactId>servlet-api</artifactId>[m
+[32m+[m[32m            <version>2.5</version>[m
+[32m+[m[32m        </dependency>[m
+[32m+[m[32m    </dependencies>[m
+[32m+[m[32m    <build>[m
+[32m+[m[32m        <plugins>[m
+[32m+[m[32m            <plugin>[m
+[32m+[m[32m                <groupId>org.apache.maven.plugins</groupId>[m
+[32m+[m[32m                <artifactId>maven-dependency-plugin</artifactId>[m
+[32m+[m[32m                <version>2.4</version>[m
+[32m+[m[32m                <executions>[m
+[32m+[m[32m                    <execution>[m
+[32m+[m[32m                        <id>copy-dependencies</id>[m
+[32m+[m[32m                        <phase>package</phase>[m
+[32m+[m[32m                        <goals><goal>copy-dependencies</goal></goals>[m
+[32m+[m[32m                    </execution>[m
+[32m+[m[32m                </executions>[m
+[32m+[m[32m            </plugin>[m
+[32m+[m[32m        </plugins>[m
+[32m+[m[32m    </build>[m
+[32m+[m[32m</project>[m
+[1mdiff --git a/src/main/java/HelloWorld.java b/src/main/java/HelloWorld.java[m
+[1mnew file mode 100644[m
+[1mindex 0000000..a1642bc[m
+[1m--- /dev/null[m
+[1m+++ b/src/main/java/HelloWorld.java[m
+[36m@@ -0,0 +1,24 @@[m
+[32m+[m[32mimport java.io.IOException;[m
+[32m+[m[32mimport javax.servlet.ServletException;[m
+[32m+[m[32mimport javax.servlet.http.*;[m
+[32m+[m[32mimport org.eclipse.jetty.server.Server;[m
+[32m+[m[32mimport org.eclipse.jetty.servlet.*;[m
+[32m+[m
+[32m+[m[32mpublic class HelloWorld extends HttpServlet {[m
+[32m+[m
+[32m+[m[32m    @Override[m
+[32m+[m[32m    protected void doGet(HttpServletRequest req, HttpServletResponse resp)[m
+[32m+[m[32m            throws ServletException, IOException {[m
+[32m+[m[32m        resp.getWriter().print("Hello from Jackson and Heroku!\n");[m
+[32m+[m[32m    }[m
+[32m+[m
+[32m+[m[32m    public static void main(String[] args) throws Exception{[m
+[32m+[m[32m        Server server = new Server(Integer.valueOf(System.getenv("PORT")));[m
+[32m+[m[32m        ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);[m
+[32m+[m[32m        context.setContextPath("/");[m
+[32m+[m[32m        server.setHandler(context);[m
+[32m+[m[32m        context.addServlet(new ServletHolder(new HelloWorld()),"/*");[m
+[32m+[m[32m        server.start();[m
+[32m+[m[32m        server.join();[m[41m   [m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
